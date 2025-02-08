@@ -1,0 +1,4 @@
+service:
+  name: example
+  ports:
+    - 1234/http

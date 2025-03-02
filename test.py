@@ -19,8 +19,10 @@ def run_glitch_checks():
     print("CHECK passed")
 
     resp = checker.put('127.0.0.1', flag, flag_id)
-    assert len(resp) == 3   # Ensure valid put response
+    assert len(resp) == 3 or len(resp) == 4   # Ensure valid put response
     assert resp[2]          # Ensure 'put' check passed
+    if len(resp) == 4:
+        flag_id = resp[3]
     print("PUT passed")
 
     checker.get('127.0.0.1', flag, flag_id, resp[1])

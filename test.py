@@ -25,7 +25,7 @@ def run_glitch_checks():
         flag_id = resp[3]
     print("PUT passed")
 
-    checker.get('127.0.0.1', flag, flag_id, resp[1])
+    resp = checker.get('127.0.0.1', flag, flag_id, resp[1])
     assert len(resp) == 3   # Ensure valid get response
     assert resp[2]          # Ensure 'get' check passed
     print("GET passed")
